@@ -1,0 +1,12 @@
+﻿<Window x:Class="MSPwdGen.SaltInputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Master Key Configuration" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="191,226,0,0" Name="btn_SaveButton" VerticalAlignment="Top" Width="75" Click="btn_SaveButton_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,197,0,0" Name="txtSaltInput" VerticalAlignment="Top" Width="254" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="Configure Master Key" VerticalAlignment="Top" Width="254" FontWeight="Bold" />
+        <TextBlock Height="43" HorizontalAlignment="Left" Margin="12,41,0,0" Name="textBlock2" Text="The master key is used with your input to generate a unique password." VerticalAlignment="Top" Width="254" TextWrapping="Wrap" />
+        <TextBlock Height="101" HorizontalAlignment="Left" Margin="12,90,0,0" Name="textBlock3" Text="If you have multiple devices, you should try to use the same Master Key on both, so that the passwords that the program generates are the same in both locations (unless you specifically want them to be different)." VerticalAlignment="Top" Width="254" TextWrapping="Wrap" />
+    </Grid>
+</Window>
