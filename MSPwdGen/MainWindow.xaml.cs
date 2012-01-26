@@ -26,9 +26,10 @@ namespace MSPwdGen
 
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
-            txtOutput_Alpha.Text = Crypto.createPassword_Alpha(txtInput.Text, "testsalt");
-            txtOutput_Special.Text = Crypto.createPassword_Special(txtInput.Text, "testsalt");
-            enableClipboardButtons(true);
+            string Salt = Storage.getSalt();
+            txtOutput_Alpha.Text = Crypto.createPassword_Alpha(txtInput.Text, Salt);
+            txtOutput_Special.Text = Crypto.createPassword_Special(txtInput.Text, Salt);
+            enableClipboardButtons(true);            
         }
 
         private void btn_ConfigureSaltDialog_Click(object sender, RoutedEventArgs e)

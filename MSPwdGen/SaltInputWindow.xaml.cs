@@ -23,10 +23,12 @@ namespace MSPwdGen
         public SaltInputWindow()
         {
             InitializeComponent();
+            txtSaltInput.Text = Storage.getSalt();
         }
 
         private void btn_SaveButton_Click(object sender, RoutedEventArgs e)
-        {             
+        {
+            Storage.setSalt(txtSaltInput.Text);
             Close();
         }
     }

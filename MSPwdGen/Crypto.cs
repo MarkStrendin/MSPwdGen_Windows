@@ -15,7 +15,7 @@ namespace MSPwdGen
                                             'w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L',
                                             'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
-            return genPasswordWithThisHash(characterArray_Alpha, hashThis_SHA256(input + salt));
+            return genPasswordWithThisHash(characterArray_Alpha, hashThis_SHA512(input + salt));
         }
 
         public static string createPassword_Special(string input, string salt)
@@ -26,12 +26,12 @@ namespace MSPwdGen
                                             'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','@','#',
                                             '$','%','^','*','(',')','_','+','?'};
 
-            return genPasswordWithThisHash(characterArray_Special, hashThis_SHA256(input + salt));
+            return genPasswordWithThisHash(characterArray_Special, hashThis_SHA512(input + salt));
         }
 
         private static string genPasswordWithThisHash(char[] characterSet, byte[] input)
         {           
-            string returnMe = "";
+            string returnMe = String.Empty;
             foreach (byte thisByte in input)
             {
                 int thisInt = (int)thisByte;
@@ -44,7 +44,7 @@ namespace MSPwdGen
             return returnMe;
         }
         
-        private static byte[] hashThis_SHA512(string hashThis)
+        public static byte[] hashThis_SHA512(string hashThis)
         {
             UnicodeEncoding UE = new UnicodeEncoding();
             byte[] hashValue;
@@ -56,7 +56,7 @@ namespace MSPwdGen
             return hashValue;
         }
 
-        private static byte[] hashThis_SHA256(string hashThis)
+        public static byte[] hashThis_SHA256(string hashThis)
         {
             UnicodeEncoding UE = new UnicodeEncoding();
             byte[] hashValue;
@@ -68,14 +68,25 @@ namespace MSPwdGen
             return hashValue;
         }
 
+        public static string convertByteArrayToString(byte[] convertThis)
+        {
+            string returnMe = String.Empty;
+
+            foreach (byte x in convertThis)
+            {
+                returnMe += String.Format("{0:x2}",x);
+            }
+            return returnMe;
+        }
+
         public static string encryptThis(string input) 
         {
-            return "TODO";
+            return input;
         }
 
         public static string decryptThis(string input) 
         {
-            return "TODO";
+            return input;
         }
 
     }
