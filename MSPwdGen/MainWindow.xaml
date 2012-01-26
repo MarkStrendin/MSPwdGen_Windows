@@ -5,7 +5,7 @@
     <Grid>
         <TextBox Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="txtInput" VerticalAlignment="Top" Width="326" />
         <Button Content="Generate!" Height="23" HorizontalAlignment="Left" Margin="12,41,0,0" Name="btn_Generate" VerticalAlignment="Top" Width="326" Click="GenerateButton_Click" />
-        <GroupBox Header="Only Alphabet characters" Height="90" HorizontalAlignment="Left" Margin="12,70,0,0" Name="groupBox1" VerticalAlignment="Top" Width="326">
+        <GroupBox Header="Only Alphabet characters" Height="90" HorizontalAlignment="Left" Margin="12,97,0,0" Name="groupBox1" VerticalAlignment="Top" Width="326">
             <Grid Width="303">
                 <TextBox Height="23" Margin="6,6,19,0" Name="txtOutput_Alpha" VerticalAlignment="Top" IsEnabled="True" IsReadOnly="True" />
                 <Button Content="Copy 8" Height="23" HorizontalAlignment="Left" Margin="6,35,0,0" Name="btn_Alpha_Copy8" VerticalAlignment="Top" Width="65" Click="btn_Alpha_Copy8_Click" IsEnabled="False" />
@@ -14,7 +14,7 @@
                 <Button Content="Copy 20" Height="23" HorizontalAlignment="Right" Margin="0,35,19,0" Name="btn_Alpha_Copy20" VerticalAlignment="Top" Width="65" IsEnabled="False" Click="btn_Alpha_Copy20_Click" />
             </Grid>
         </GroupBox>
-        <GroupBox Header="With Special Characters" Height="90" HorizontalAlignment="Left" Margin="12,166,0,0" Name="groupBox2" VerticalAlignment="Top" Width="326">
+        <GroupBox Header="With Special Characters" Height="90" HorizontalAlignment="Left" Margin="12,193,0,0" Name="groupBox2" VerticalAlignment="Top" Width="326">
             <Grid Width="303">
                 <TextBox Height="23" IsEnabled="True" Margin="6,6,19,0" Name="txtOutput_Special" VerticalAlignment="Top" IsReadOnly="True" />
                 <Button Content="Copy 8" Height="23" HorizontalAlignment="Left" Margin="6,35,0,0" Name="btn_Special_Copy8" VerticalAlignment="Top" Width="65" IsEnabled="False" Click="btn_Special_Copy8_Click" />

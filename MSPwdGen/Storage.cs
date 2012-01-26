@@ -20,12 +20,13 @@ namespace MSPwdGen
                     using (StreamWriter writer = new StreamWriter(oStream))
                     {                       
                         if ((input.Length > 0))
-                        {
-                            writer.Write(input);
+                        {                         
+                            string sharedSecret = Crypto.convertByteArrayToString(Crypto.hash(System.Environment.MachineName.ToString()));
+                            writer.Write(Crypto.encrypt(input, sharedSecret));
                         }
                         else
                         {
-                            writer.Write(Crypto.convertByteArrayToString(Crypto.hashThis_SHA512(DateTime.Now.ToString())));
+                            writer.Write(Crypto.convertByteArrayToString(Crypto.hash(DateTime.Now.ToString())));
                         }
                         writer.Close();
                     }
@@ -69,7 +70,10 @@ namespace MSPwdGen
                     }
                 }
             }
-            return Crypto.decryptThis(returnMe);
+
+            string sharedSecret = Crypto.convertByteArrayToString(Crypto.hash(System.Environment.MachineName.ToString()));
+            return Crypto.decrypt(returnMe,sharedSecret);
+            //return returnMe;
         }
 
         /// <summary>
@@ -83,7 +87,10 @@ namespace MSPwdGen
                 {
                     using (StreamWriter writer = new StreamWriter(oStream))
                     {
-                        writer.Write(Crypto.convertByteArrayToString(Crypto.hashThis_SHA512(DateTime.Now.ToString())));
+                        string timeString = DateTime.Now.ToString();
+                        string newSalt = Crypto.convertByteArrayToString(Crypto.hash(timeString));
+                        string sharedSecret = Crypto.convertByteArrayToString(Crypto.hash(System.Environment.MachineName.ToString()));
+                        writer.Write(Crypto.encrypt(newSalt,sharedSecret));
                         writer.Close();
                     }                    
                 }

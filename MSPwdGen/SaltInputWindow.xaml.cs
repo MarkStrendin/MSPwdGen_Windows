@@ -31,5 +31,10 @@ namespace MSPwdGen
             Storage.setSalt(txtSaltInput.Text);
             Close();
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
