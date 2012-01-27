@@ -54,9 +54,12 @@ namespace MSPwdGen
 
         private static byte[] hashThis_SHA512(string hashThis)
         {
-            UnicodeEncoding UE = new UnicodeEncoding();
+            /* Should be using ASCII encoding instad of Unicode */
+            //UnicodeEncoding UE = new UnicodeEncoding();
+
             byte[] hashValue;
-            byte[] message = UE.GetBytes(hashThis);
+            //byte[] message = UE.GetBytes(hashThis);
+            byte[] message = Encoding.ASCII.GetBytes(hashThis);
 
             SHA512Managed hashString = new SHA512Managed();
             hashValue = hashString.ComputeHash(message);
@@ -66,9 +69,12 @@ namespace MSPwdGen
 
         private static byte[] hashThis_SHA256(string hashThis)
         {
+            /* Should be using ASCII encoding instad of Unicode */
             UnicodeEncoding UE = new UnicodeEncoding();
+
             byte[] hashValue;
-            byte[] message = UE.GetBytes(hashThis);
+            //byte[] message = UE.GetBytes(hashThis);
+            byte[] message = Encoding.ASCII.GetBytes(hashThis);
 
             SHA256Managed hashString = new SHA256Managed();
             
