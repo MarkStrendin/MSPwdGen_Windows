@@ -9,7 +9,7 @@ namespace MSPwdGen
 {
     static class Crypto
     {
-        private static byte[] _salt = Encoding.ASCII.GetBytes("845524565");
+        private static string _app_salt = "845524565";
 
         public static string createPassword_Alpha(string input, string salt)
         {
@@ -18,7 +18,7 @@ namespace MSPwdGen
                                             'w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L',
                                             'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
-            return genPasswordWithThisHash(characterArray_Alpha, hashThis_SHA512(input + salt));
+            return genPasswordWithThisHash(characterArray_Alpha, hashThis_SHA512(input + salt + _app_salt));
         }
 
         public static string createPassword_Special(string input, string salt)
@@ -29,7 +29,7 @@ namespace MSPwdGen
                                             'M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','@','#',
                                             '$','%','^','*','(',')','_','+','?'};
 
-            return genPasswordWithThisHash(characterArray_Special, hashThis_SHA512(input + salt));
+            return genPasswordWithThisHash(characterArray_Special, hashThis_SHA512(input + salt + _app_salt));
         }
 
         private static string genPasswordWithThisHash(char[] characterSet, byte[] input)
