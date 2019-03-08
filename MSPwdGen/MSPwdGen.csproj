@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,11 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Crypto.cs" />
+    <Compile Include="MSPWDCrypto.cs" />
     <Compile Include="SaltInputWindow.xaml.cs">
       <DependentUpon>SaltInputWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Storage.cs" />
+    <Compile Include="MSPWDStorage.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
